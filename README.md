@@ -9,4 +9,5 @@ Every branch has an implementation:
 - basic-oauth2 -> integration simple github login using 0auth2-client
 - complete-oauth2 -> full authentication flow using oauth2 for many provider
 
+## Basic OAuth2
 

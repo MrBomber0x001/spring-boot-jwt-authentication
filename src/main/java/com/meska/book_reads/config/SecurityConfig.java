@@ -2,6 +2,7 @@ package com.meska.book_reads.config;
 
 import com.meska.book_reads.service.JwtAuthenticationFilter;
 import com.meska.book_reads.service.JwtService;
+import com.meska.book_reads.service.OAuth2SuccessHandler;
 import com.meska.book_reads.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,7 @@ public class SecurityConfig {
                 .anyRequest().authenticated()
         )
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .oauth2Login(oauth -> oauth.successHandler(oauth2SuccessHandler()))
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
@@ -58,6 +60,12 @@ public class SecurityConfig {
         authProvider.setUserDetailsService(userDetailsService);
         authProvider.setPasswordEncoder(passwordEncoder);
         return new ProviderManager(authProvider);
+    }
+
+
+    @Bean
+    public OAuth2SuccessHandler oauth2SuccessHandler(){
+        return new OAuth2SuccessHandler(jwtService);
     }
 
 }
