@@ -23,3 +23,11 @@ However in the current implementation there're two important bottlenecks
    1. Also checking if the user already existed, no need to create it
 2. need to verify if the jwt service & jwt filter are working properly or not!
 3. Will visit this implementation later!
+
+
+## Complete OAuth2
+
+In this implementation we somehow need a factory, to have a single endpoint responding to Oauth providers
+as we could've more than +20 integrations, having single endpoint is a good solution, but not on many cases!
+
+In this case the Spring security provide a standard way for most providers
