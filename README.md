@@ -11,3 +11,15 @@ Every branch has an implementation:
 
 ## Basic OAuth2
 
+This leverages the following package with the following scenairo:
+
+
+And the variations & customization are open!
+
+
+However in the current implementation there're two important bottlenecks
+
+1. we should've generated password and place it in the userdetails when successfully signing for the first time using Github
+   1. Also checking if the user already existed, no need to create it
+2. need to verify if the jwt service & jwt filter are working properly or not!
+3. Will visit this implementation later!
