@@ -71,6 +71,10 @@ public class UserController {
         response.sendRedirect("/oauth2/authorization/github");
     }
 
+    @GetMapping("/google")
+    public void initiateGoogleAuth(HttpServletResponse response) throws IOException {
+        response.sendRedirect("/oauth2/authorization/google");
+    }
 }
 
 
